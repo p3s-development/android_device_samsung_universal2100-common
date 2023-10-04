@@ -172,6 +172,18 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     device/samsung/universal2100-common/overlay/hardware/samsung/AdvancedDisplay
 
+# Preopt SystemUI and Settings
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI \
+    SystemUIGoogle \
+    Settings \
+    SettingsGoogle \
+    NexusLauncherRelease
+
+# Compile SystemUI on device with `speed`.
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.systemuicompilerfilter=speed
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
